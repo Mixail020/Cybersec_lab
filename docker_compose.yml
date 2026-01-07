@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  bot1:
+    build: .
+    command: python3 bot.py
+    restart: unless-stopped
+    container_name: mqtt-bot1
+
+  bot2:
+    build: .
+    command: python3 bot.py
+    restart: unless-stopped
+    container_name: mqtt-bot2
+
+  bot3:
+    build: .
+    command: python3 bot.py
+    restart: unless-stopped
+    container_name: mqtt-bot3
+
+  controller:
+    build: .
+    command: python3 controller.py
+    stdin_open: true
+    tty: true
+    container_name: mqtt-controller
